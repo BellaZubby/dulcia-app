@@ -1,0 +1,52 @@
+import Link from 'next/link';
+import React, { useContext, useState } from 'react'
+import { CartContext } from './cartContext';
+import { FaShoppingCart } from 'react-icons/fa';
+import ErrorMsgContainer from './errorMsgContainer';
+
+
+type Props = {
+    href: string;
+    children: React.ReactNode;
+    className: string;
+}
+
+const ProtectedLink = ({href, children, className}: Props) => {
+    const {dispatch, state} = useContext(CartContext)
+    const [error, setError] = useState('')
+    const [openError, setOpenError] = useState(false)
+    
+    const alertLogin = () => {
+        setError('Please login to access cart items');
+        setOpenError(true);
+    }
+    if(!state.user) {
+        return (
+            <>
+                        <div 
+            className='flex items-center gap-2 cursor-pointer ml-3 text-primary-50'
+            onClick={alertLogin}>
+            <FaShoppingCart className="w-7 h-7" />
+            <span>{state?.items.length}</span>
+
+
+            </div>
+            {
+                error && openError && 
+                <ErrorMsgContainer>
+                               <h1 className='text-white sm:text-5xl ssm:text-3xl text-2xl px-10'>{error}</h1>
+           
+                            <button onClick={() => setOpenError(false)} className='border bg-primary-200 text-white px-7 py-4 rounded-md text-lg'>Close</button>
+                </ErrorMsgContainer>
+            }
+            </>
+
+        )
+    }
+  
+    return (
+    <Link href={href} className={className}>{children}</Link>
+  )
+}
+
+export default ProtectedLink
