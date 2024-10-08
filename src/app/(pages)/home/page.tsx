@@ -23,13 +23,12 @@ const HomePage = ({}:Props) => {
 
   
   return (
-    <Suspense>
+      <Suspense fallback={<div>...Loading</div>}>
           {query ?
           
                <div className='pt-40 ssm:pt-48 sm:pt-48 bm:pt-48 md:pt-48 font-robotoCondensed'>
-                <Suspense fallback={<h1>Loading...</h1>}>
-                <SearchResult query={query}/> 
-                </Suspense>
+              
+                  <SearchResult query={query}/> 
                
              
           </div>
@@ -38,7 +37,6 @@ const HomePage = ({}:Props) => {
            
           
          :
-          <>
           <div className='pt-14 ssm:pt-24 sm:pt-32 font-robotoCondensed'>
             <HeroSection data={banner} />
             <Products data={queryData} className={''}/>
@@ -49,7 +47,7 @@ const HomePage = ({}:Props) => {
             <School className=''/> 
           
            </div>
-           </>
+           
          
           }
             

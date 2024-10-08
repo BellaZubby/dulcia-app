@@ -8,6 +8,7 @@ import { contactData, socialIcon, openingHours } from "./Hooks/data";
 import { auth } from '@/app/firebase'
 import { useContext, useEffect } from 'react'
 import { CartContext } from "./components/cartContext";
+import Spinner from "./components/spinner";
 
 
 export default function Home() {
@@ -36,14 +37,13 @@ export default function Home() {
   }, [dispatch])
   return (
     <main className="">
-    <Suspense>
-    <Navbar/>
-  </Suspense>
-     <Suspense>
-     
+    <Suspense fallback={<Spinner/>}>
+      <Navbar/>
+    </Suspense>
+    <Suspense fallback={<Spinner/>}>
       <HomePage/>
-
-     </Suspense>
+    </Suspense>
+     
       <Footer contact={contactData} socials={socialIcon} openingHours={openingHours}/>
     </main>
   );
