@@ -19,11 +19,7 @@ const Navbar = ({}: Props) => {
   return (
     <div 
     className='w-full fixed font-robotoCondensed z-[99]'>
-        <motion.div
-          variants={slideInFromTop(0)}
-          initial='hidden' 
-          whileInView='visible'
-          viewport={{once:true}}
+        <div
         className=''>
             {
                 aboveMediumScreen &&  <DesktopMenu 
@@ -36,7 +32,7 @@ const Navbar = ({}: Props) => {
                 menu={menuLinks} socials={socialIcon}
                 />
             }
-        </motion.div>
+        </div>
 
     </div>
   )

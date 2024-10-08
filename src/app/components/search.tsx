@@ -36,7 +36,7 @@ const Search = (props: Props) => {
   return (
     <>
     {/* desktop */}
-      <div className="relative w-1/2 hidden md:block">
+      <div className="relative w-[50%] hidden md:block">
           <input
           type='text'
           onChange={(e) => handleSearch(e.target.value)}
@@ -46,7 +46,7 @@ const Search = (props: Props) => {
           </button>
       </div>
 {/* mobile */}
-      <div className="relative w-full ssm:w-[70%] md:hidden">
+      <div className="relative w-[70%] md:hidden">
         <input 
          type='text'
          onChange={(e) => handleSearch(e.target.value)}

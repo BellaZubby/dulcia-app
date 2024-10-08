@@ -60,12 +60,12 @@ useEffect(
 
   return (
     <div className="md:hidden">
-      <div className="flex items-center justify-evenly px-5 ssm:pr-0 py-3 bg-primary-150">
+      <div className="flex items-center justify-evenly pr-3 ssm:pr-0 py-3 bg-primary-150">
         <Link href={"/home"}>
           <Image
             src={logo}
             alt="logo"
-            className="w-36 object-contain"
+            className="w-32 object-contain"
             priority
           />
         </Link>
