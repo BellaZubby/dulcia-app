@@ -67,7 +67,7 @@ useEffect(
           <Image
             src={logo}
             alt="logo"
-            className="w-32 object-contain"
+            className="w-36 object-contain"
             priority />
         </Link>
           <Search/>
@@ -91,8 +91,8 @@ useEffect(
       
 
        <ProtectedLink href='/checkout' className="flex items-center gap-2">
-       <FaShoppingCart className="w-7 h-7" />
-       <span>{state?.items.length}</span>
+       <FaShoppingCart className="w-9 h-9" />
+       <span className="text-lg">{state?.items.length}</span>
        </ProtectedLink>
             {/* <Link href={state.user && '/checkout'} >
               

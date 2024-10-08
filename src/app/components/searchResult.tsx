@@ -67,9 +67,9 @@ const SearchResult = ({query}: Props) => {
                         <motion.div 
                         key={idx}>
                          <Image  className='h-72 object-cover' src={detail.image} alt='products'/>
-                         <p className='text-primary-200 text-lg'>{detail.name}</p>
-                         <p className='text-primary-200 font-bold'>₦{detail.price}</p>
-                         <button onClick={() => addToCart(detail)} className='bg-yellow-400 text-primary-200 border border-gray-500 rounded-sm px-2 py-1 mt-3 mb-10 md:mb-0'>Add to cart</button>
+                         <p className='text-primary-200 text-xl'>{detail.name}</p>
+                         <p className='text-primary-200 font-bold text-lg'>₦{detail.price}</p>
+                         <button onClick={() => addToCart(detail)} className='bg-yellow-400 text-primary-200 border border-gray-500 rounded-sm px-2 py-2 text-lg mt-3 mb-10 md:mb-0'>Add to cart</button>
                         </motion.div>
                     ))
                    }

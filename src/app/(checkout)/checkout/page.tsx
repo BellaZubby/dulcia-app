@@ -74,15 +74,15 @@ const Checkout = (props: Props) => {
                     alt="bread"
                   />
                   <div className="mt-4">
-                    <p className="text-primary-200 text-lg">
+                    <p className="text-primary-200 text-xl">
                       {item.product.name}
                     </p>
-                    <p className="text-primary-200 font-bold">
+                    <p className="text-primary-200 font-bold text-lg">
                     ₦{item.product.price}
                     </p>
                     <button
                       onClick={() => removeFromCart(item.product.id)}
-                      className="bg-yellow-400 text-primary-200 rounded-sm px-2 py-1 mt-3 mb-10 md:mb-0 border border-gray-500 font-bold"
+                      className="bg-yellow-400 text-primary-200 rounded-sm px-2 py-2 text-lg mt-3 mb-10 md:mb-0 border border-gray-500"
                     >
                       Remove from cart
                     </button>

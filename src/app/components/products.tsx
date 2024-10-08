@@ -86,9 +86,9 @@ useEffect(
                    transition={{duration:0.5, delay:0.5}}
                         key={idx}>
                          <Image  className='h-72 object-cover' src={detail.image} alt='products' priority/>
-                         <p className='text-primary-200 text-lg'>{detail.name}</p>
-                         <p className='text-primary-200 font-bold'>₦{detail.price}</p>
-                         <button onClick={() => addToCart(detail)} className='bg-yellow-400 border border-gray-500 text-primary-200 rounded-sm px-2 py-1 mt-3 mb-10 md:mb-0'>Add to cart</button>
+                         <p className='text-primary-200 text-xl'>{detail.name}</p>
+                         <p className='text-primary-200 font-bold text-lg'>₦{detail.price}</p>
+                         <button onClick={() => addToCart(detail)} className='bg-yellow-400 border border-gray-500 text-primary-200 rounded-sm px-2 py-2 text-lg mt-3 mb-10 md:mb-0'>Add to cart</button>
                         </motion.div>
                     ))
                    }

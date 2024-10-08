@@ -60,20 +60,20 @@ useEffect(
 
   return (
     <div className="md:hidden">
-      <div className="flex items-center justify-evenly pr-5 ssm:pr-0 py-3 bg-primary-150">
+      <div className="flex items-center justify-evenly px-5 ssm:pr-0 py-3 bg-primary-150">
         <Link href={"/home"}>
           <Image
             src={logo}
             alt="logo"
-            className="w-32 ssm:w-36 object-contain"
+            className="w-36 object-contain"
             priority
           />
         </Link>
           <Search/>
 
           <ProtectedLink href={'/checkout'} className="flex items-center gap-2 text-primary-50 ml-3 mr-3">
-          <FaShoppingCart className="w-7 h-7" />
-          <span>{state?.items.length}</span>
+          <FaShoppingCart className="w-8 h-8" />
+          <span className="text-lg">{state?.items.length}</span>
           </ProtectedLink>
       </div>
         {/* dropdown */}
