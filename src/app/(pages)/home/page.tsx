@@ -23,7 +23,7 @@ const HomePage = ({}:Props) => {
 
   
   return (
-    <>
+    <Suspense>
           {query ?
           
                <div className='pt-40 ssm:pt-48 sm:pt-48 bm:pt-48 md:pt-48 font-robotoCondensed'>
@@ -53,7 +53,7 @@ const HomePage = ({}:Props) => {
          
           }
             
-        </>
+        </Suspense>
   )
 }
 
