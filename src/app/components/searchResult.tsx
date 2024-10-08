@@ -43,7 +43,7 @@ const SearchResult = ({query}: Props) => {
     detail: item.detail.filter(info => info.name.toLowerCase().includes(query.toLowerCase()),)
    })).filter(item => item.detail.length > 0);
     return (
-    <div className='py-14'>
+    <div className='pt-40 md:pb-10 ssm:pt-48 sm:pt-48 bm:pt-48 md:pt-48 font-robotoCondensed'>
         {query && filteredData.length > 0 ? <h1 className='text-2xl sm:text-3xl text-primary-200 text-center'>Search result for &quot;<span className='font-semibold'>{query}</span>&quot;</h1>: " "} 
 
         {

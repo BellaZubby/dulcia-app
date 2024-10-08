@@ -19,12 +19,10 @@ const HomePage = ({}: Props) => {
   const aboveMediumScreen = useMediaQuery("(min-width:1060px)");
 
   return (
-    <>
+    <Suspense>
       {query ? (
         <Suspense fallback={<div>...Loading</div>}>
-          <div className="pt-40 ssm:pt-48 sm:pt-48 bm:pt-48 md:pt-48 font-robotoCondensed">
             <SearchResult query={query} />
-          </div>
         </Suspense>
       ) : (
         <Suspense fallback ={<div>...Loading</div>}>
@@ -38,7 +36,7 @@ const HomePage = ({}: Props) => {
         </Suspense>
         
       )}
-    </>
+    </Suspense>
   );
 };
 
