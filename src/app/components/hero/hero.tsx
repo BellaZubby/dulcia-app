@@ -67,7 +67,7 @@ const HeroSection = ({data}: Props) => {
                   <div key={idx} className='relative'>
                     <Image className='w-full h-screen object-cover' src={data.banner} alt='banner' priority/>
                     <div className='absolute inset-0 bg-gradient-to-b from-gray-500/20 to-white flex items-center justify-center'>
-                      <h1 className='text-3xl ssm:text-4xl sm:text-5xl md:text-7xl font-robotoCondensed text-transparent bg-clip-text bg-gradient-primary'>{data.title}</h1>
+                      <h1 className='text-4xl sm:text-5xl md:text-7xl font-robotoCondensed text-transparent bg-clip-text bg-gradient-primary'>{data.title}</h1>
                     </div>
                   </div>
               ))

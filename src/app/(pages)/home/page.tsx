@@ -11,6 +11,7 @@ import useMediaQuery from "@/app/Hooks/useMediaQuery";
 import TestimonialMobile from "@/app/components/testimonial/testimonialMobile";
 import Services from "@/app/components/services";
 import { queryData } from "@/app/Hooks/testData";
+import Spinner from "@/app/components/spinner";
 type Props = {};
 
 const HomePage = ({}: Props) => {
@@ -19,24 +20,23 @@ const HomePage = ({}: Props) => {
   const aboveMediumScreen = useMediaQuery("(min-width:1060px)");
 
   return (
-    <Suspense>
+    <>
       {query ? (
-        <Suspense fallback={<div>...Loading</div>}>
+        <Suspense fallback={<Spinner/>}>
             <SearchResult query={query} />
         </Suspense>
       ) : (
-        <Suspense fallback ={<div>...Loading</div>}>
+        
           <div className="pt-14 ssm:pt-24 sm:pt-32 font-robotoCondensed">
           <HeroSection data={banner} />
           <Products data={queryData} className={""} />
           <Services />
           {aboveMediumScreen ? <TestimonialDesktop /> : <TestimonialMobile />}
-          <School className="" />
+          <School className=""/>
         </div>
-        </Suspense>
         
       )}
-    </Suspense>
+    </>
   );
 };
 

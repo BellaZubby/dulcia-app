@@ -72,7 +72,7 @@ const Login = ({}: Props) => {
                           value={email} 
                           onChange={e => setEmail(e.target.value)}
                           type='text' 
-                          className='outline outline-1 pl-2 text-sm py-2'/>
+                          className='outline outline-1 pl-2 text-sm py-[14px]'/>
                           </div>
                           <div className='mt-4'>
                           <h5 className='text-sm font-bold'>Password</h5>
@@ -81,7 +81,7 @@ const Login = ({}: Props) => {
                              value={password} 
                              onChange={e => setPassword(e.target.value)}
                              type={visible ? 'text': 'password'} 
-                             className='outline outline-1 pl-2 text-sm py-2'/>
+                             className='outline outline-1 pl-2 text-sm py-[14px]'/>
                              {
                               visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/> : <HiEye onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
                              }
@@ -93,7 +93,7 @@ const Login = ({}: Props) => {
                           <button 
                           type='submit'
                           onClick={signIn}
-                          className='bg-yellow-400 text-primary-200 rounded-sm px-2 py-2 mt-5 md:mb-0 font-bold'>Sign In</button>
+                          className='bg-yellow-400 text-primary-200 rounded-sm px-2 py-[14px] mt-5 md:mb-0 font-bold'>Sign In</button>
 
                         </form>
                         
@@ -111,7 +111,7 @@ const Login = ({}: Props) => {
                         <div>
                           <p className='text-sm'>Don&apos;t have an account?</p>
                           <Link href={'/register'} className='flex flex-col'>
-                          <button className='bg-primary-200 text-white rounded-sm px-2 py-2 mt-3 md:mb-0'>Create your Dulcia account</button>
+                          <button className='bg-primary-200 text-white rounded-sm px-2 py-[14px] mt-3 md:mb-0'>Create your Dulcia account</button>
 
                           </Link>
                         </div>

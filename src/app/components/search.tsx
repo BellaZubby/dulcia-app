@@ -50,7 +50,7 @@ const Search = (props: Props) => {
         <input 
          type='text'
          onChange={(e) => handleSearch(e.target.value)}
-        className="border py-1 ssm:py-2 px-4 w-full rounded-md outline-none" />
+        className="border py-2 ssm:py-2 px-4 w-full rounded-md outline-none" />
         <button type="submit" className="absolute top-1/2 -translate-y-1/2 right-6">
           <FaSearch className="text-primary-50/40 w-4 h-4" />
         </button>

@@ -65,7 +65,7 @@ useEffect(
           <Image
             src={logo}
             alt="logo"
-            className="w-28 ssm:w-32 object-contain"
+            className="w-32 ssm:w-36 object-contain"
             priority
           />
         </Link>
@@ -79,8 +79,8 @@ useEffect(
         {/* dropdown */}
         <div className="flex items-center justify-between px-7 ssm:px-10 bg-primary-100 py-3">
          {
-            isTogged ?  <FaX className="text-primary-50 w-6 h-6 ssm:w-9 ssm:h-9" onClick={() => setIsToggled(!isTogged)}/> : 
-            <FaBars className="text-primary-50 w-7 h-7 ssm:w-9 ssm:h-9" onClick={() => setIsToggled(!isTogged)}/>
+            isTogged ?  <FaX className="text-primary-50 w-7 h-7 ssm:w-9 ssm:h-9" onClick={() => setIsToggled(!isTogged)}/> : 
+            <FaBars className="text-primary-50 w-8 h-8 ssm:w-9 ssm:h-9" onClick={() => setIsToggled(!isTogged)}/>
          }
           
           <div className="flex items-center gap-7 text-primary-50">
@@ -141,7 +141,7 @@ useEffect(
               onClick={() => setIsToggled(false)} 
               href={item.href} key={idx}>
               
-                  <item.icon />
+                  <item.icon/>
     
               </Link>
             ))}

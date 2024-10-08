@@ -10,12 +10,10 @@ type Props = {}
 const defaultAnimation = {
     hidden: {
       opacity: 0,
-      y: 20,
     },
   
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
         duration: 0.4,
       },
@@ -24,7 +22,7 @@ const defaultAnimation = {
 
 const Services = (props: Props) => {
   return (
-    <div className='grid ssm:grid-cols-2 ssm:gap-14 gap-9 items-center bg-gray-400 text-primary-200 py-14 ssm:py-20 px-5 font-abhaya overflow-x-hidden mt-16'>
+    <div className='grid ssm:grid-cols-2 ssm:gap-14 gap-9 items-center bg-gray-400 text-primary-200 py-14 ssm:py-20 px-5 font-abhaya overflow-x-hidden'>
         <motion.div 
         initial='hidden'
         animate='hidden'
@@ -50,7 +48,7 @@ const Services = (props: Props) => {
             whileInView='visible'
             viewport={{once:true}}
             >
-            <Link href={'/contact'} className='border bg-yellow-200 border-primary-200 py-3 px-7 ssm:py-4 ssm:px-10 font-robotoCondensed rounded-md ssm:text-lg text-sm'>
+            <Link href={'/contact'} className='border bg-yellow-200 border-primary-200 py-3 px-7 ssm:py-4 ssm:px-10 font-robotoCondensed rounded-md text-lg'>
                <motion.button
                className='hover:text-white'
                   initial={{scale:1}}

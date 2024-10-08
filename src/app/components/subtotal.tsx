@@ -12,7 +12,7 @@ const Subtotal = (props: Props) => {
         <NumericFormat
             renderText={(value) => (
                 <>
-                    <p>
+                    <p className='text-lg'>
                     Subtotal ({state.items.length} items):{' '}
                     <strong className="text-primary-200">{value}</strong>
                     </p>
@@ -26,7 +26,7 @@ const Subtotal = (props: Props) => {
             prefix={'₦'}
         
         />
-        <button className='bg-yellow-400 text-primary-200 rounded-sm px-2 py-1 mt-3 md:mb-0 font-bold'>Proceed to Checkout</button>
+        <button className='bg-yellow-400 text-primary-200 rounded-sm px-2 py-2 mt-3 md:mb-0 font-bold'>Proceed to Checkout</button>
     </div>
   )
 }

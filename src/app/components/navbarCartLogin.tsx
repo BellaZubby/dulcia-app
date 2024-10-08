@@ -10,7 +10,7 @@ type Props = {}
 const NavbarCartLogin = (props: Props) => {
     const {dispatch, state} = useContext(CartContext);
   return (
-    <div className="flex items-center justify-between ssm:px-10 px-4 py-2 bg-primary-150 font-robotoCondensed">
+    <div className="flex items-center justify-between ssm:px-10 pl-3 pr-7 py-4 bg-primary-150 font-robotoCondensed">
     <Link href={"/home"}>
       <Image
         src={logo}

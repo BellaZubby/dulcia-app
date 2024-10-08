@@ -37,12 +37,13 @@ export default function Home() {
   }, [dispatch])
   return (
     <main className="">
-    <Suspense fallback={<Spinner/>}>
+      <Suspense>
       <Navbar/>
-    </Suspense>
-    <Suspense fallback={<Spinner/>}>
+      </Suspense>
+      <Suspense>
       <HomePage/>
-    </Suspense>
+      </Suspense>
+      
      
       <Footer contact={contactData} socials={socialIcon} openingHours={openingHours}/>
     </main>

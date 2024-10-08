@@ -103,7 +103,7 @@ const Register = ({}: Props) => {
                             value={username} 
                             onChange={e => setUsername(e.target.value)}
                             type='text' 
-                            className='outline outline-1 pl-2 text-sm py-2'/>
+                            className='outline outline-1 pl-2 text-sm py-[14px]'/>
                             {errors.username && 
                             <p className='text-[12px] text-red-500'>{errors.username.message}</p>}
                             </div>
@@ -114,7 +114,7 @@ const Register = ({}: Props) => {
                             value={email} 
                             onChange={e => setEmail(e.target.value)}
                             type='text' 
-                            className='outline outline-1 pl-2 text-sm py-2'/>
+                            className='outline outline-1 pl-2 text-sm py-[14px]'/>
                             {errors.email && 
                             <p  className='text-[12px] text-red-500'>{errors.email.message}</p>}
                             </div>
@@ -126,7 +126,7 @@ const Register = ({}: Props) => {
                                value={password} 
                                onChange={e => setPassword(e.target.value)}
                                type={visible ? 'text': 'password'} 
-                               className='outline outline-1 pl-2 text-sm py-2'/>
+                               className='outline outline-1 pl-2 text-sm py-[14px]'/>
                                {
                                 visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/> : <HiEye onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
                                }
@@ -143,7 +143,7 @@ const Register = ({}: Props) => {
                                value={confirmPassword} 
                                onChange={e => setConfirmPassword(e.target.value)}
                                type={visible ? 'text': 'password'} 
-                               className='outline outline-1 pl-2 text-sm py-2'/>
+                               className='outline outline-1 pl-2 text-sm py-[14px]'/>
                                {
                                 visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/> : <HiEye onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
                                }
@@ -156,7 +156,7 @@ const Register = ({}: Props) => {
                             <button 
                             type='submit'
                             onClick={signUp}
-                            className='bg-yellow-400 text-primary-200 rounded-sm px-2 py-2 mt-5 md:mb-0 font-bold'>Create account</button>
+                            className='bg-yellow-400 text-primary-200 rounded-sm px-2 py-[14px] mt-5 md:mb-0 font-bold'>Create account</button>
                           </form>
 
                           {
@@ -172,7 +172,7 @@ const Register = ({}: Props) => {
                           <div>
                             <p className='text-sm'>Already have an account?</p>
                             <Link href={'/login'} className='flex flex-col'>
-                            <button className='bg-primary-200 text-white rounded-sm px-2 py-2 mt-3 md:mb-0 font-bold'>Sign-in</button>
+                            <button className='bg-primary-200 text-white rounded-sm px-2 py-[14px] mt-3 md:mb-0 font-bold'>Sign-in</button>
   
                             </Link>
                            
