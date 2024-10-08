@@ -33,7 +33,7 @@ export default function Home() {
             dispatch({type: 'CLEAR_CART'});
           }
       })
-  }, [])
+  }, [dispatch])
   return (
     <main className="">
     <Suspense>

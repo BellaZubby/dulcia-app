@@ -107,9 +107,9 @@ const Login = ({}: Props) => {
                           
                         
                        
-                        <p className='text-[12px]'>By signing-in you agree to Dulcia's <Link href={'#'} className='text-blue-400'>terms and conditions.</Link></p>
+                        <p className='text-[12px]'>By signing-in you agree to Dulcia&apos;s <Link href={'#'} className='text-blue-400'>terms and conditions.</Link></p>
                         <div>
-                          <p className='text-sm'>Don't have an account?</p>
+                          <p className='text-sm'>Don&apos;t have an account?</p>
                           <Link href={'/register'} className='flex flex-col'>
                           <button className='bg-primary-200 text-white rounded-sm px-2 py-2 mt-3 md:mb-0'>Create your Dulcia account</button>
 

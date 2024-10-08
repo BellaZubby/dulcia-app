@@ -168,7 +168,7 @@ const Register = ({}: Props) => {
                               successMsg && <p className='text-green-600 font-semibold text-sm'>{successMsg}</p>
                             }
                           </div>
-                          <p className='text-[12px]'>By signing-up you agree to Dulcia's <Link href={'#'} className='text-blue-400'>terms and conditions.</Link></p>
+                          <p className='text-[12px]'>By signing-up you agree to Dulcia&apos;s <Link href={'#'} className='text-blue-400'>terms and conditions.</Link></p>
                           <div>
                             <p className='text-sm'>Already have an account?</p>
                             <Link href={'/login'} className='flex flex-col'>

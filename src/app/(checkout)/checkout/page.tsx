@@ -38,7 +38,7 @@ const Checkout = (props: Props) => {
             dispatch({type: 'CLEAR_CART'});
           }
       })
-  }, [])
+  }, [dispatch])
   return (
  <>
           <NavbarCartLogin/>
