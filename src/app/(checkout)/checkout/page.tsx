@@ -5,6 +5,7 @@ import Subtotal from "@/app/components/subtotal";
 import {CartContext} from "@/app/components/cartContext";
 import NavbarCartLogin from "@/app/components/navbarCartLogin";
 import { auth } from "@/app/firebase";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 type Props = {};
 
 const Checkout = (props: Props) => {
@@ -43,7 +44,7 @@ const Checkout = (props: Props) => {
  <>
           <NavbarCartLogin/>
           {/* new */}
-          <div className="ssm:pb-20 pb-10 bg-white font-robotoCondensed">
+          <div className="ssm:pb-20 pb-10 bg-white font-robotoCondensed pt-[100px] ssm:pt-24">
             <div className="ssm:hidden  bg-primary-200 flex flex-col py-3 items-center justify-center">
             <h3 className="text-white text-lg">Hello, {state.user?.displayName}</h3>
           <h1 className="text-2xl font-bold text-white shadow-lg">

@@ -25,7 +25,7 @@ interface IFormInput {
 
 const Register = ({}: Props) => {
   const {register,trigger, formState:{errors}} = useForm<IFormInput>({resolver:yupResolver(validationSchema)
-  })
+  });
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -85,7 +85,7 @@ const Register = ({}: Props) => {
   const toggleVisibility = () => {
     setVisible(!visible)
   }
- 
+
   return (
     <>
         <div className='flex flex-col items-center bg-gray-200 pt-10 pb-16'>
@@ -97,60 +97,90 @@ const Register = ({}: Props) => {
                       <h1 className=' text-xl ssm:text-2xl text-primary-200 font-bold'>Register</h1>
                           <form className='flex flex-col'>
                           <div className='flex flex-col'>
-                            <h5 className='text-sm font-bold'>Username</h5>
+                            <h5 className='text-[16px] font-bold mb-2'>Username</h5>
                             <input
                             {...register('username')}
                             value={username} 
                             onChange={e => setUsername(e.target.value)}
                             type='text' 
-                            className='outline outline-1 pl-2 text-sm py-[14px]'/>
+                            className='outline outline-1 pl-2 text-[15px] py-[14px] mb-2'/>
                             {errors.username && 
-                            <p className='text-[12px] text-red-500'>{errors.username.message}</p>}
+                            // <p className='text-[13px] text-red-500'>{errors.username.message}</p>
+                            <>
+                               <p className={username.length >= 1 ? 'text-[13px] hidden': 'text-[13px] text-red-500'}>Username is required</p>
+                               <p className={username.length >= 3 ? 'text-[13px] hidden': 'text-[13px] text-red-500'}>Username must be at least 3 characters</p>
+                               <p className={username.length <= 25 && username.length >= 1 ? 'text-[13px] hidden': 'text-[13px] text-red-500'}>Username must not exceed 25 characters</p>
+                            </>
+                           
+                            
+                            }
                             </div>
                             <div className='flex flex-col mt-4'>
-                            <h5 className='text-sm font-bold'>E-mail</h5>
+                            <h5 className='text-[16px] font-bold mb-2'>E-mail</h5>
                             <input
                             {...register('email')}
                             value={email} 
                             onChange={e => setEmail(e.target.value)}
                             type='text' 
-                            className='outline outline-1 pl-2 text-sm py-[14px]'/>
+                            className='outline outline-1 pl-2 text-[15px] py-[14px] mb-2'/>
                             {errors.email && 
-                            <p  className='text-[12px] text-red-500'>{errors.email.message}</p>}
+                            // <p  className='text-[13px] text-red-500'>{errors.email.message}</p>
+                            <>
+                            {/* <p  className='text-[13px] text-red-500'>{errors.email.message}</p> */}
+                  <p className={email.length >= 1 ? 'text-[13px] hidden' : 'text-[13px] text-red-500'}>Email is required</p>
+                  <p className={/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ? 'text-[13px] hidden' : 'text-[13px] text-red-500'}>Enter a valid Email address</p></>
+                            }
                             </div>
                             <div className='mt-4'>
-                            <h5 className='text-sm font-bold'>Password</h5>
+                            <h5 className='text-[16px] font-bold mb-2'>Password</h5>
                             <div  className='relative flex flex-col'>
                                <input
                                {...register('password')}
                                value={password} 
                                onChange={e => setPassword(e.target.value)}
                                type={visible ? 'text': 'password'} 
-                               className='outline outline-1 pl-2 text-sm py-[14px]'/>
+                               className='outline outline-1 pl-2 text-[15px] py-[14px] mb-2'/>
                                {
-                                visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/> : <HiEye onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
+                                visible ?   <HiEyeSlash onClick={toggleVisibility} className='w-6 h-6 absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/> : <HiEye onClick={toggleVisibility} className='w-6 h-6 absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
                                }
                               
                             </div>
                             {errors.password && 
-                            <p  className='text-[12px] text-red-500'>{errors.password.message}</p>}
+                             <>
+                             <p className={password.length >=1 ? 'text-[13px] hidden': 'text-[13px] text-red-500'}>Password is required</p>
+                             <p className={password.length >= 6 ? 'text-[13px] hidden': 'text-[13px] text-red-500'}>Password must be at least 6 characters</p>
+                             <p className={/[a-z]/.test(password) ?'text-[13px] hidden': 'text-[13px] text-red-500'}>Password must contain at least one lowercase letter</p>
+                             <p className={/[A-Z]/.test(password) ? 'text-[13px] hidden':'text-[13px] text-red-500'}>Password must contain at least one uppercase letter</p>
+                             <p className={/[0-9]/.test(password) ?'text-[13px] hidden':'text-[13px] text-red-500'}>Password must contain at least a number</p>
+                             <p className={/[@#$%^&*/]/.test(password) ? 'text-[13px] hidden':'text-[13px] text-red-500'}>Password must contain at least one special character; @#$%^&*/</p>
+                             </>
+                             
+                            }
+                            {/* <ul>
+                              <l
+                            </ul> */}
                             </div>
                             <div className='mt-4'>
-                            <h5 className='text-sm font-bold'>Confirm-password</h5>
+                            <h5 className='text-[16px] font-bold mb-2'>Confirm-password</h5>
                             <div  className='relative flex flex-col'>
                                <input
                                {...register('confirmPassword')}
                                value={confirmPassword} 
                                onChange={e => setConfirmPassword(e.target.value)}
                                type={visible ? 'text': 'password'} 
-                               className='outline outline-1 pl-2 text-sm py-[14px]'/>
+                               className='outline outline-1 pl-2 text-[15px] py-[14px] mb-2'/>
                                {
-                                visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/> : <HiEye onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
+                                visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200 w-6 h-6'/> : <HiEye onClick={toggleVisibility} className='w-6 h-6 absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
                                }
                              
                             </div>
                             {errors.confirmPassword && 
-                           <p  className='text-[12px] text-red-500'>{errors.confirmPassword.message}</p>}
+                            <>
+                             <p className={confirmPassword.length >=1 ? 'text-[13px] hidden': 'text-[13px] text-red-500'}>Confirm Password is required</p>
+                             <p  className={confirmPassword === password ?'text-[13px] hidden':'text-[13px] text-red-500'}>Password must match</p> 
+                            </>
+                          
+                           }
                             </div>
                           
                             <button 

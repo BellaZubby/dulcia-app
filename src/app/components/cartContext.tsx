@@ -1,11 +1,10 @@
 "use client"
-import React, {createContext, useReducer, ReactNode} from 'react';
+import React, {createContext, useReducer, ReactNode, useEffect} from 'react';
 import {CartItem, DataTypes} from '../Hooks/testData';
-
-
 export type CartState = {
     items: CartItem[];
     user:null | any;
+    
 };
 
 
@@ -13,11 +12,12 @@ type CartAction =
 | {type: 'ADD_TO_CART'; product: DataTypes} 
 | {type: 'REMOVE_FROM_CART'; product: string}
 | {type:'SET_USER'; user: any | null}
+ |{type: 'LOAD_CART'; product: CartItem[]}
 | {type: 'CLEAR_CART'};
 
 const initialState:CartState = {
     items: [],
-    user: null
+    user: null,
 };
 
 // cartTotal 0R selector
@@ -30,12 +30,11 @@ const cartReducer = (
         // console.log(action);
         switch (action.type) {
            case 'ADD_TO_CART' :
-
            return {
                     ...state,
                     items:
                     [...state.items, {
-                        // ...action.product,
+
                         product: action.product,
                     }],
                 };
@@ -67,6 +66,12 @@ const cartReducer = (
                 case 'CLEAR_CART': 
                  return {...state, items: []};
 
+                 case 'LOAD_CART':
+                    return {
+                        ...state,
+                        items: action.product
+                    }
+
                 default:
                   return state
             }
@@ -85,9 +90,7 @@ const cartReducer = (
 
 
     export const CartProvider = ({children}:{children:ReactNode}) => {
-       
-        const [state, dispatch] = useReducer(cartReducer, initialState);
-
+        const [state, dispatch] = useReducer(cartReducer, initialState) 
         return (
             <CartContext.Provider value={{state, dispatch}}>
                 {children}

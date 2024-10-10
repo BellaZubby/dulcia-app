@@ -90,7 +90,7 @@ useEffect(
        </div>
       
 
-       <ProtectedLink href='/checkout' className="flex items-center gap-2">
+       <ProtectedLink href='/checkout' className="flex items-center gap-2 mr-7">
        <FaShoppingCart className="w-9 h-9" />
        <span className="text-lg">{state?.items.length}</span>
        </ProtectedLink>

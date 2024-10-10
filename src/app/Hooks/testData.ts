@@ -52,6 +52,7 @@ export interface QueryDataTypes {
     heading:string;
     href:string;
     id:number;
+    group:string;
 }
 
 
@@ -91,7 +92,8 @@ export const queryData:QueryDataTypes[] = [
                 id: 'pastry7'
             },
         ],
-        id: 1
+        id: 1,
+        group: "A"
     },
 
     // cake
@@ -129,9 +131,9 @@ export const queryData:QueryDataTypes[] = [
                 price: 3000.50,
                 id: 'cake5'
             },
-          
         ],
-        id: 2
+        id: 2,
+        group: "B"
     },
    
     // bread
@@ -171,9 +173,9 @@ export const queryData:QueryDataTypes[] = [
                 price: 1000.84,
                 id: 'bread5'
             },
-
         ],
-        id: 3
+        id: 3,
+        group: "A"
     },
     {
         heading: "COOKIES",
@@ -210,7 +212,8 @@ export const queryData:QueryDataTypes[] = [
                 id: 'cookies5'
             },
         ],
-        id: 4
+        id: 4,
+        group: "B"
     },
     {
         heading: "PARFAIT",
@@ -247,7 +250,8 @@ export const queryData:QueryDataTypes[] = [
                 id: 'parfait5'
             },
         ],
-        id: 5
+        id: 5,
+        group: "A"
     },
 
     {
@@ -285,7 +289,8 @@ export const queryData:QueryDataTypes[] = [
                 id: 'milkshake5'
             },
         ],
-        id: 6
+        id: 6,
+        group: "B"
     },
    
 ]

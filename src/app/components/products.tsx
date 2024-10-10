@@ -63,19 +63,20 @@ useEffect(
             return (
               <motion.section
               id={item.href}  
-              key={idx}>
-                <div className='pt-16 ssm:pt-28 md:pt-24'/>
+              key={idx}
+              className={item.group === 'A' ? 'groupA pb-10 ssm:pb-16':'groupB pb-10 ssm:pb-16'}>
+                <div className='pt-24 ssm:pt-28 md:pt-24'/>
                  <motion.h1 
                  variants={slideInFromLeft(0)}
                  initial='hidden'
                  whileInView='visible'
                  viewport={{once:true}}
-                 className=' text-3xl ssm:text-4xl text-primary-200 font-semibold mt-14 pl-10'>
+                 className='text-3xl ssm:text-4xl text-primary-200 font-semibold mt-14 pl-10'>
                   {item.heading}
                   </motion.h1>
                  <div  
                  
-                 className='grid grid-cols-1 ssm:grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 px-5 md:px-7 mt-9'>
+                 className='grid grid-cols-1 ssm:grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 px-6 ssm:px-9 md:px-7 mt-9'>
                  {
                     item.detail.map((detail: any,idx: React.Key | null | undefined) => (
                      
@@ -86,14 +87,13 @@ useEffect(
                    transition={{duration:0.5, delay:0.5}}
                         key={idx}>
                          <Image  className='h-72 object-cover' src={detail.image} alt='products' priority/>
-                         <p className='text-primary-200 text-xl'>{detail.name}</p>
+                         <p className='text-primary-200 text-xl mt-3'>{detail.name}</p>
                          <p className='text-primary-200 font-bold text-lg'>₦{detail.price}</p>
                          <button onClick={() => addToCart(detail)} className='bg-yellow-400 border border-gray-500 text-primary-200 rounded-sm px-2 py-2 text-lg mt-3 mb-10 md:mb-0'>Add to cart</button>
                         </motion.div>
                     ))
                    }
                  </div>
-                 <hr className='mt-16 ssm:mt-28 md:mt-24 w-[95%] mx-auto'/> 
               </motion.section>
               
            ) })

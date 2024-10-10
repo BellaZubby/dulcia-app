@@ -67,23 +67,23 @@ const Login = ({}: Props) => {
                     <h1 className=' text-xl ssm:text-2xl text-primary-200 font-bold'>Sign-in</h1>
                         <form className='flex flex-col'>
                           <div className='flex flex-col'>
-                          <h5 className='text-sm font-bold'>E-mail</h5>
+                          <h5 className='text-[16px] font-bold mb-2'>E-mail</h5>
                           <input
                           value={email} 
                           onChange={e => setEmail(e.target.value)}
                           type='text' 
-                          className='outline outline-1 pl-2 text-sm py-[14px]'/>
+                          className='outline outline-1 pl-2 text-[15px] py-[14px]'/>
                           </div>
                           <div className='mt-4'>
-                          <h5 className='text-sm font-bold'>Password</h5>
+                          <h5 className='text-[16px] font-bold mb-2'>Password</h5>
                           <div  className='relative flex flex-col'>
                              <input
                              value={password} 
                              onChange={e => setPassword(e.target.value)}
                              type={visible ? 'text': 'password'} 
-                             className='outline outline-1 pl-2 text-sm py-[14px]'/>
+                             className='outline outline-1 pl-2 text-[15px] py-[14px]'/>
                              {
-                              visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/> : <HiEye onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
+                              visible ?   <HiEyeSlash onClick={toggleVisibility} className='absolute top-1/2 -translate-y-1/2 right-5 text-primary-200 w-6 h-6'/> : <HiEye onClick={toggleVisibility} className='w-6 h-6 absolute top-1/2 -translate-y-1/2 right-5 text-primary-200'/>
                              }
                            
                           </div>

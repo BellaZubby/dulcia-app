@@ -44,7 +44,7 @@ const SearchResult = ({query}: Props) => {
    })).filter(item => item.detail.length > 0);
     return (
     <div className='pt-40 md:pb-10 ssm:pt-48 sm:pt-48 bm:pt-48 md:pt-48 font-robotoCondensed'>
-        {query && filteredData.length > 0 ? <h1 className='text-2xl sm:text-3xl text-primary-200 text-center'>Search result for &quot;<span className='font-semibold'>{query}</span>&quot;</h1>: " "} 
+        {query && filteredData.length > 0 ? <h1 className='text-2xl sm:text-3xl text-primary-200 text-center mt-10'>Search result for &quot;<span className='font-semibold'>{query}</span>&quot;</h1>: " "} 
 
         {
           filteredData.length > 0 ? (
@@ -53,7 +53,7 @@ const SearchResult = ({query}: Props) => {
             {
           filteredData.map((item,idx)=>(
               <div
-              className='' 
+              className={item.group === 'A' ? 'groupA py-10 mt-7':'groupB py-10 mt-7'} 
               key={idx}>
                  <motion.h1 
                  className=' text-3xl ssm:text-4xl text-primary-200 font-semibold mt-14 pl-6'>
@@ -84,9 +84,9 @@ const SearchResult = ({query}: Props) => {
           ): (
              <>
              
-             <div className='flex items-center justify-center'>
-               <h1 className='tracking-wider text-red-500 font-bold text-2xl sm:text-3xl text-center'>Sorry, product currently not available</h1>
-             </div>
+             
+               <h1 className='tracking-wider text-red-500 font-bold text-2xl sm:text-3xl text-center mt-24'>Sorry, product currently not available</h1>
+             
             
              
             <Products data={data} className=''/>
@@ -97,7 +97,7 @@ const SearchResult = ({query}: Props) => {
         error && openError && <ErrorMsgContainer>
            <h1 className='text-white sm:text-5xl ssm:text-3xl text-2xl px-10'>{error}</h1>
            
-              <button onClick={() => setOpenError(false)} className='border bg-primary-200 text-white px-7 py-4 rounded-md text-lg'>Close</button>
+              <button onClick={() => setOpenError(false)} className='border bg-primary-200 text-white px-7 py-3 rounded-md text-lg'>Close</button>
            
         </ErrorMsgContainer>
       }   
