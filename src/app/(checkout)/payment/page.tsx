@@ -37,7 +37,7 @@ const PaymentPage = (props: Props) => {
 }, [dispatch])
   return (
     <div className='w-full pt-[100px] font-robotoCondensed pb-14'>
-        <h1 className='text-center text-white bg-primary-200 ssm:py-7 py-5 ssm:text-3xl text-2xl'>
+        <h1 className='text-center text-white bg-primary-200 py-7 ssm:text-3xl text-2xl'>
           <span className='font-bold'>Checkout</span> {""}
           (<Link href={'/checkout'}>{state.items?.length} items</Link>)
         </h1>
@@ -73,7 +73,7 @@ const PaymentPage = (props: Props) => {
         <hr className='mx-10 mt-10'/>
         <div  className='ssm:grid ssm:grid-cols-3 px-7 ssm:px-10 mt-10'>
             <p className='text-primary-200 font-bold text-xl'>Payment Method</p>
-            <div className=''>
+            <div className='ssm:mt-0 mt-4'>
               {/* everything stripe */}
                 <Elements stripe={stripePromise}>
                   <PaymentTotal/>

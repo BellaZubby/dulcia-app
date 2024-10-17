@@ -33,13 +33,13 @@ app.get(
       status: (arg0: number) => {
         (): any;
         new (): any;
-        send: { (arg0: string): any; new (): any};
+        send: { (arg0: string): any; new (): any };
       };
     }
   ) => response.status(200).send("hello world")
 );
 app.post("/payments/create", async (request: any, response: any) => {
-const total = request.query.total;
+  const total = request.query.total;
 
   console.log("payment Request Received BOOM!!! for this amount >>> ", total);
 

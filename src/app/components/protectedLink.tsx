@@ -24,7 +24,7 @@ const ProtectedLink = ({href, children, className}: Props) => {
         return (
             <>
                         <div 
-            className='flex items-center gap-2 cursor-pointer ml-3 text-primary-50 mr-7'
+            className='flex items-center gap-2 cursor-pointer text-primary-50'
             onClick={alertLogin}>
             <FaShoppingCart className="w-9 h-9" />
             <span className='text-lg'>{state?.items.length}</span>
