@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const Stripe = require("stripe");
-import {Request, Response} from "express";
 
 // setup environment variable
 dotenv.config();
@@ -29,18 +28,18 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 app.get(
   "/",
   (
-    _request: Request,
+    _request: any,
     response: {
       status: (arg0: number) => {
-        (): Response;
-        new (): Response;
-        send: { (arg0: string): Response; new (): Response };
+        (): any;
+        new (): any;
+        send: { (arg0: string): any; new (): any};
       };
     }
   ) => response.status(200).send("hello world")
 );
-app.post("/payments/create", async (request: Request, response: Response) => {
-  const total = request.query.total;
+app.post("/payments/create", async (request: any, response: any) => {
+const total = request.query.total;
 
   console.log("payment Request Received BOOM!!! for this amount >>> ", total);
 
