@@ -13,6 +13,7 @@ import { CartContext } from "../cartContext";
 import { auth } from "@/app/firebase";
 import ProtectedLink from "../protectedLink";
 import SpinnerLogin from "../spinnerLogin";
+import ProtectedOrderLink from "../protectedOrderLink";
 
 
 type Props = {
@@ -60,7 +61,7 @@ useEffect(
 
   return (
     <div className="md:hidden">
-      <div className="flex items-center justify-evenly pr-5 ssm:pr-0 py-3 bg-primary-150">
+      <div className="flex items-center justify-evenly pr-3 ssm:pr-0 py-3 bg-primary-150">
         <Link href={"/home"}>
           <Image
             src={logo}
@@ -70,11 +71,18 @@ useEffect(
           />
         </Link>
           <Search/>
-
-          <ProtectedLink href={'/checkout'} className="flex items-center gap-2 text-primary-50 ml-3 mr-7">
+          <div className="flex items-center gap-4 px-2">
+          <ProtectedOrderLink href={'/orders'} className="">
+            <span className="text-lg ssm:text-xl text-primary-50 font-semibold">Orders</span>
+          </ProtectedOrderLink>
+         
+          <ProtectedLink href={'/checkout'} className="flex items-center gap-2 text-primary-50">
           <FaShoppingCart className="w-8 h-8" />
-          <span className="text-lg">{state?.items.length}</span>
+          <span className="text-lg ssm:text-xl">{state?.items.length}</span>
           </ProtectedLink>
+          </div>
+
+          
       </div>
         {/* dropdown */}
         <div className="flex items-center justify-between px-7 ssm:px-10 bg-primary-100 py-3">
@@ -87,8 +95,8 @@ useEffect(
           {
             state.user && (
               <div className="flex items-center gap-1 font-semibold">
-              <span className="text-[16px]">Hello</span>
-              <span className="text-[16px]">{state.user?.displayName}</span>
+              <span className="text-[16px] ssm:text-xl">Hello</span>
+              <span className="text-[16px] ssm:text-xl">{state.user?.displayName}</span>
               
             </div>
             )
@@ -96,7 +104,7 @@ useEffect(
             <div className="flex items-center gap-2" onClick={handleAuthentication}>
        
       
-           <button  className='text-lg'>{state.user ? 'Logout' : 'Sign In'}</button>
+           <button  className='text-lg ssm:text-xl'>{state.user ? 'Logout' : 'Sign In'}</button>
            {
             loading && <SpinnerLogin/>
            }

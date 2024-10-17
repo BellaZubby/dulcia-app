@@ -6,18 +6,12 @@ import {CartContext} from "@/app/components/cartContext";
 import NavbarCartLogin from "@/app/components/navbarCartLogin";
 import { auth } from "@/app/firebase";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import CheckoutCart from "@/app/components/checkoutCart";
 type Props = {};
 
 const Checkout = (props: Props) => {
   const {dispatch, state} = useContext(CartContext)
   
-  // remove from cart
-  const removeFromCart = (productId: string) => {
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      product: productId,
-    });
-  };
   
   useEffect(() => {
       auth.onAuthStateChanged(authUser => {
@@ -42,9 +36,10 @@ const Checkout = (props: Props) => {
   }, [dispatch])
   return (
  <>
-          <NavbarCartLogin/>
+         
           {/* new */}
           <div className="ssm:pb-20 pb-10 bg-white font-robotoCondensed pt-[100px] ssm:pt-24">
+            <div className={state.items.length === 0 ? "hidden":"block"}>
             <div className="ssm:hidden  bg-primary-200 flex flex-col py-3 items-center justify-center">
             <h3 className="text-white text-lg">Hello, {state.user?.displayName}</h3>
           <h1 className="text-2xl font-bold text-white shadow-lg">
@@ -64,47 +59,28 @@ const Checkout = (props: Props) => {
               <Subtotal />
             </div>
           </div>
+            </div>
+           
           {
             state.items.length > 0 && (
-              <div className="grid md:grid-cols-4 ssm:grid-cols-3 grid-cols-1 gap-5 ssm:px-10 px-5">
-              {state.items.map((item, idx) => (
-                <div key={idx} className="mt-14">
-                  <Image
-                    className="h-72 object-cover shadow-lg"
-                    src={item.product.image}
-                    alt="bread"
-                  />
-                  <div className="mt-4">
-                    <p className="text-primary-200 text-xl">
-                      {item.product.name}
-                    </p>
-                    <p className="text-primary-200 font-bold text-lg">
-                    ₦{item.product.price}
-                    </p>
-                    <button
-                      onClick={() => removeFromCart(item.product.id)}
-                      className="bg-yellow-400 text-primary-200 rounded-sm px-2 py-2 text-lg mt-3 mb-10 md:mb-0 border border-gray-500"
-                    >
-                      Remove from cart
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <CheckoutCart/>
             )
           }
 
           {
             state.items.length === 0 && (
-              <div className="h-72 mt-20 ssm:px-10">
-                 <h1 className="text-3xl ssm:text-4xl sm:text-5xl font-semibold text-center ssm:text-left">Cart is empty</h1>
-              </div>
+              // <div className="h-72 mt-20 ssm:px-10">
+              //    <h1 className="text-3xl ssm:text-4xl sm:text-4xl font-semibold text-center ssm:text-left">Cart is empty</h1>
+              // </div>
+              <div className="h-72 flex items-center justify-center mt-20">
+              <h1 className='text-2xl ssm:text-4xl font-bold text-primary-50'>Cart is empty</h1>
+            </div>
              
             )
           }
          
           {/* for mobile */}
-          <div className="border border-gray-400 bg-primary-150 px-5 py-7 ssm:hidden mt-7 mx-5">
+          <div className={state.items.length === 0 ? "hidden":"border border-gray-400 bg-primary-150 px-5 py-7 ssm:hidden mt-7 mx-5"}>
             <Subtotal />
           </div>
 

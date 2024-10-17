@@ -42,17 +42,17 @@ const Search = (props: Props) => {
           onChange={(e) => handleSearch(e.target.value)}
           className="border py-2 px-4 w-full border-gray-200 outline-none" />
           <button  className="absolute top-1/2 -translate-y-1/2 right-6">
-            <FaSearch className="w-5 h-5 text-primary-200" />
+            <FaSearch className="w-5 h-5 text-primary-50" />
           </button>
       </div>
 {/* mobile */}
-      <div className="relative w-[70%] md:hidden">
+      <div className="relative w-[50%] md:hidden">
         <input 
          type='text'
          onChange={(e) => handleSearch(e.target.value)}
         className="border py-2 ssm:py-2 px-4 w-full border-gray-200 outline-none" />
         <button type="submit" className="absolute top-1/2 -translate-y-1/2 right-6">
-          <FaSearch className="text-primary-200 w-4 h-4" />
+          <FaSearch className="text-primary-50 w-4 h-4" />
         </button>
         
       </div>

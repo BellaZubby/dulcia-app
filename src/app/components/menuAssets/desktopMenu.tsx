@@ -10,6 +10,7 @@ import { CartContext } from "../cartContext";
 import { auth } from "@/app/firebase";
 import ProtectedLink from "../protectedLink";
 import SpinnerLogin from "../spinnerLogin";
+import ProtectedOrderLink from "../protectedOrderLink";
 
 
 type Props = {
@@ -62,7 +63,7 @@ useEffect(
 
   return (
     <><div className="hidden md:block">
-      <div className="flex items-center justify-between px-10 py-2 bg-primary-150">
+      <div className="flex items-center justify-between px-6 py-2 bg-primary-150">
         <Link href={"/home"}>
           <Image
             src={logo}
@@ -71,29 +72,37 @@ useEffect(
             priority />
         </Link>
           <Search/>
-        <div className="flex items-center justify-center gap-9 text-primary-50">
+        <div className="flex items-center justify-center gap-6 text-primary-50">
 
           {
             state.user && (
               <div className="flex items-center gap-2 font-semibold">
-              <span className="text-sm ssm:text-lg">Hello</span>
-              <span className="text-sm ssm:text-lg">{state.user?.displayName}</span>
+              <span className="text-xl">Hello</span>
+              <span className="text-xl">{state.user?.displayName}</span>
             </div>
             )
           }
 
         <div className='flex items-center gap-2' onClick={handleAuthentication}>
-       <button className='text-lg ssm:text-xl'>{state.user ? 'Logout' : 'Sign-in'}</button>
+       <button className='text-xl font-semibold'>{state.user ? 'Logout' : 'Sign-in'}</button>
        {
         loading && <SpinnerLogin/>
        }  
        </div>
+
+       <div className="flex items-center gap-4">
+       <ProtectedOrderLink href='/orders' className="">
+           <span className='text-xl font-bold'>Orders</span>
+       </ProtectedOrderLink> 
       
 
        <ProtectedLink href='/checkout' className="flex items-center gap-2 mr-7">
        <FaShoppingCart className="w-9 h-9" />
-       <span className="text-lg">{state?.items.length}</span>
+       <span className="text-xl">{state?.items.length}</span>
        </ProtectedLink>
+       </div>
+
+     
             {/* <Link href={state.user && '/checkout'} >
               
               

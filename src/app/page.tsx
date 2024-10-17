@@ -1,14 +1,17 @@
 "use client";
-import Image from "next/image";
 import HomePage from "./(pages)/home/page";
-import { Suspense } from "react";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { contactData, socialIcon, openingHours } from "./Hooks/data";
 import { auth } from "@/app/firebase";
 import { useContext, useEffect } from "react";
 import { CartContext } from "./components/cartContext";
-import Spinner from "./components/spinner";
+// import { loadStripe } from "@stripe/stripe-js";
+
+
+// const promise = loadStripe('process.env.NEXT_PUBLIC_STRIPE_PUBLISHED_KEY')
+
+
 
 export default function Home() {
   const { dispatch, state } = useContext(CartContext);
@@ -33,6 +36,8 @@ export default function Home() {
       }
     });
   }, [dispatch]);
+
+ 
   return (
     <main className="">
       <Navbar />

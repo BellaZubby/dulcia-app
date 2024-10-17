@@ -11,26 +11,20 @@ type Props = {
     className: string;
 }
 
-const ProtectedLink = ({href, children, className}: Props) => {
+const ProtectedOrderLink = ({href, children, className}: Props) => {
     const {dispatch, state} = useContext(CartContext)
     const [error, setError] = useState('')
     const [openError, setOpenError] = useState(false)
     
     const alertLogin = () => {
-        setError('Please sign-in to access cart');
+        setError('Please sign-in to view orders');
         setOpenError(true);
     }
     if(!state.user) {
         return (
             <>
-                        <div 
-            className='flex items-center gap-2 cursor-pointer ml-3 text-primary-50 mr-7'
-            onClick={alertLogin}>
-            <FaShoppingCart className="w-9 h-9" />
-            <span className='text-lg'>{state?.items.length}</span>
-
-
-            </div>
+          
+            <span onClick={alertLogin} className='text-lg text-primary-50 font-bold cursor-pointer'>Orders</span>
             {
                 error && openError && 
                 <ErrorMsgContainer>
@@ -49,4 +43,4 @@ const ProtectedLink = ({href, children, className}: Props) => {
   )
 }
 
-export default ProtectedLink
+export default ProtectedOrderLink

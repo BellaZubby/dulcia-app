@@ -1,8 +1,7 @@
 "use client"
-import Navbar from "../components/navbar";
-import { Suspense} from "react";
 import { contactData, openingHours,socialIcon } from "../Hooks/data";
 import Footer from "../components/footer";
+import NavbarCartLogin from "../components/navbarCartLogin";
 
 
 export default function PageLayout({
@@ -13,7 +12,7 @@ export default function PageLayout({
 
   return (
     <>
-        
+           <NavbarCartLogin/>
           <div>
             {children}
           </div>
