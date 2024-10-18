@@ -38,9 +38,9 @@ const Checkout = (props: Props) => {
  <>
          
           {/* new */}
-          <div className="ssm:pb-20 pb-10 bg-white font-robotoCondensed pt-[76.5px] xs:pt-[100px]">
+          <div className="ssm:pb-20 pb-10 bg-white font-robotoCondensed pt-[75px] xs:pt-[100px]">
             <div className={state.items.length === 0 ? "hidden":"block"}>
-            <div className="ssm:hidden  bg-primary-200 flex flex-col pt-10 pb-8 xs:pb-0 xs:py-8 items-center justify-center">
+            <div className="ssm:hidden  bg-primary-200 flex flex-col items-center justify-center pb-7 pt-10">
             <h3 className="text-white text-lg">Hello, {state.user?.displayName}</h3>
           <h1 className="text-2xl font-bold text-white shadow-lg">
             Your Shopping Cart
