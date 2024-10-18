@@ -53,7 +53,7 @@ useEffect(() => {
   
 }, [state.user])
   return (
-    <div className='w-full ssm:pt-[100px] pt-20 pb-20 font-robotoCondensed ssm:px-10 px-5 bg-primary-200'>
+    <div className={`w-full ssm:pt-[100px] pt-20 pb-20 font-robotoCondensed ssm:px-10 px-5 ${orders.length === 0 ? 'bg-white':'bg-primary-200 '}`}>
         <h1 className={orders.length === 0 ? "hidden":'ssm:text-4xl text-3xl mt-16 ssm:mt-12 text-white font-bold pl-5 ssm:pl-0'}>Your Orders</h1>
         {
           orders.length === 0 && 

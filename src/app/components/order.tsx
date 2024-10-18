@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
 import Image from "next/image";
 import { NumericFormat } from "react-number-format";
 import { CartContext} from "./cartContext";
+import { db } from "../firebase";
 
 // h:mm:ss a
 
@@ -12,6 +13,19 @@ type Props = {
 
 const Order = ({ order }: Props) => {
     const {state, dispatch} = useContext(CartContext)
+    // const [address, setAddress] = useState(' ');
+    // useEffect(() => {
+    //     const fetchAddress = async() => {
+    //       const user = state.user;
+    //       if(user) {
+    //         const doc = await db.collection('users').doc(user?.uid).get();
+    //         if(doc.exists) {
+    //           setAddress(doc.data()?.address);
+    //         }
+    //       }
+    //     };
+    //     fetchAddress();
+    //   }, [state.user])
   return (
     <div className='ssm:shadow-xl shadow-lg md:w-[70%] sm:w-[95%] w-[100%] mx-auto ssm:px-10 pt-14 pb-20 mt-16 px-4 bg-white'>
         <div className="border-b border-gray-400 pb-10">
@@ -37,6 +51,10 @@ const Order = ({ order }: Props) => {
             thousandSeparator={true}
             prefix={'₦'}
         />
+         <p className="font-bold text-primary-200 text-lg ssm:text-xl mt-2">
+              Delivery Address: <small className="font-normal text-primary-200 text-[13px] ssm:text-[15px]">{order.data.address}</small>
+               {/* <small>{order.data.amount}</small> */}
+            </p>
             
         </div>
 

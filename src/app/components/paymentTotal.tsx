@@ -85,7 +85,8 @@ const PaymentTotal = (props: Props) => {
                 .set({
                     items: state.items,
                     amount: paymentIntent?.amount,
-                    created: paymentIntent?.created
+                    created: paymentIntent?.created,
+                    address: state.address
                 })
             setSucceeded(true)
             setError(null)

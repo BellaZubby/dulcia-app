@@ -4,6 +4,7 @@ import {CartItem, DataTypes} from '../Hooks/testData';
 export type CartState = {
     items: CartItem[];
     user:null | any;
+    address: string;
     
 };
 
@@ -12,12 +13,14 @@ type CartAction =
 | {type: 'ADD_TO_CART'; product: DataTypes} 
 | {type: 'REMOVE_FROM_CART'; product: string}
 | {type:'SET_USER'; user: any | null}
- |{type: 'LOAD_CART'; product: CartItem[]}
+| {type:'SET_ADDRESS'; address: string}
+|{type: 'LOAD_CART'; product: CartItem[]}
 | {type: 'CLEAR_CART'};
 
 const initialState:CartState = {
     items: [],
     user: null,
+    address: '',
 };
 
 // cartTotal 0R selector
@@ -71,6 +74,11 @@ const cartReducer = (
                         ...state,
                         items: action.product
                     }
+                    case 'SET_ADDRESS':
+                        return {
+                            ...state,
+                            address: action.address
+                        }
 
                 default:
                   return state

@@ -1,8 +1,8 @@
 "use client"
 import { CartContext } from '@/app/components/cartContext'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
-import { auth } from '@/app/firebase'
+import { auth, db } from '@/app/firebase'
 import PaymentTotal from '@/app/components/paymentTotal'
 import CheckoutCart from '@/app/components/checkoutCart'
 import Link from 'next/link'
@@ -35,9 +35,23 @@ const PaymentPage = (props: Props) => {
         }
     })
 }, [dispatch])
+const [address, setAddress] = useState('');
+
+// useEffect(() => {
+//   const fetchAddress = async() => {
+//     const user = state.user;
+//     if(user) {
+//       const doc = await db.collection('users').doc(user?.uid).get();
+//       if(doc.exists) {
+//         setAddress(doc.data()?.address);
+//       }
+//     }
+//   };
+//   fetchAddress();
+// }, [state.user])
   return (
     <div className='w-full pt-[100px] font-robotoCondensed pb-14'>
-        <h1 className='text-center text-white bg-primary-200 py-7 ssm:text-3xl text-2xl'>
+        <h1 className='text-center text-white bg-primary-200 py-7 ssm:py-9 ssm:text-3xl text-2xl'>
           <span className='font-bold'>Checkout</span> {""}
           (<Link href={'/checkout'}>{state.items?.length} items</Link>)
         </h1>
@@ -45,7 +59,7 @@ const PaymentPage = (props: Props) => {
             <p className='text-primary-200 font-bold text-xl'>Delivery Address</p>
             <div>
             <p className='ssm:w-1/2 text-lg text-[#525150]'>{state.user?.email}</p>
-            <p className='ssm:w-1/2 text-lg text-[#525150]'>House 18 Paradise Town, Lagos</p>
+            <p className='ssm:w-5/6 text-lg text-[#525150]'>{state.address}</p>
             </div>
             
         </div>

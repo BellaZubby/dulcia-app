@@ -38,9 +38,9 @@ const Checkout = (props: Props) => {
  <>
          
           {/* new */}
-          <div className="ssm:pb-20 pb-10 bg-white font-robotoCondensed pt-[100px] ssm:pt-24">
+          <div className="ssm:pb-20 pb-10 bg-white font-robotoCondensed pt-[76.5px] xs:pt-[100px]">
             <div className={state.items.length === 0 ? "hidden":"block"}>
-            <div className="ssm:hidden  bg-primary-200 flex flex-col py-6 items-center justify-center">
+            <div className="ssm:hidden  bg-primary-200 flex flex-col pt-10 pb-8 xs:pb-0 xs:py-8 items-center justify-center">
             <h3 className="text-white text-lg">Hello, {state.user?.displayName}</h3>
           <h1 className="text-2xl font-bold text-white shadow-lg">
             Your Shopping Cart
@@ -55,7 +55,7 @@ const Checkout = (props: Props) => {
             </h1>
             </div>
            
-            <div className="border border-gray-400 bg-white px-5 py-4 ssm:px-7 ssm:py-5 md:py-7 ssm:basis-[42%] md:basis-1/4">
+            <div className="border border-gray-400 bg-white px-5 py-4 ssm:px-7 ssm:py-5 md:py-7 ssm:basis-[42%] md:basis-[30%]">
               <Subtotal />
             </div>
           </div>
@@ -72,7 +72,7 @@ const Checkout = (props: Props) => {
               // <div className="h-72 mt-20 ssm:px-10">
               //    <h1 className="text-3xl ssm:text-4xl sm:text-4xl font-semibold text-center ssm:text-left">Cart is empty</h1>
               // </div>
-              <div className="h-72 flex items-center justify-center mt-20">
+              <div className="h-72 flex items-center justify-center">
               <h1 className='text-2xl ssm:text-4xl font-bold text-primary-50'>Cart is empty</h1>
             </div>
              
