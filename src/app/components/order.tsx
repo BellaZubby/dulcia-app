@@ -13,7 +13,7 @@ type Props = {
 const Order = ({ order }: Props) => {
     const {state, dispatch} = useContext(CartContext)
   return (
-    <div className='ssm:shadow-xl shadow-lg md:w-[70%] sm:w-[95%] w-[100%] mx-auto ssm:px-10 pt-14 pb-20 mt-16 px-4'>
+    <div className='ssm:shadow-xl shadow-lg md:w-[70%] sm:w-[95%] w-[100%] mx-auto ssm:px-10 pt-14 pb-20 mt-16 px-4 bg-white'>
         <div className="border-b border-gray-400 pb-10">
         <h3 className="text-primary-200 font-semibold text-2xl mb-5">Order</h3>
         <p className="text-primary-200 font-semibold text-lg ssm:text-xl">{moment.unix(order.data.created).format('MMMM Do YYYY, h:mma')}</p>

@@ -110,11 +110,11 @@ const PaymentTotal = (props: Props) => {
     }
   return (
     
-    <div className='border border-gray-300 px-7 py-7'>
+    <div className='border-2 border-gray-300 px-7 py-7'>
         <form onSubmit={handleSubmit}  className='flex flex-col gap-5'>
             <div className='flex flex-col gap-3'>
             <h5 className='text-primary-200 font-semibold text-[17px] ssm:mt-0'>Card Details</h5>
-            <CardElement onChange={handleChange} className='border py-3 px-2'/>
+            <CardElement onChange={handleChange} className='border-2 border-gray-300 py-3 px-2'/>
             </div>
             <div className='flex flex-col gap-3'>
             <NumericFormat
@@ -122,7 +122,7 @@ const PaymentTotal = (props: Props) => {
                 <>
                     <p className='text-[17px]'>
                     <strong className="text-primary-200">Order Total: {value}</strong>
-                    </p>
+                    </p> 
                     
                 </>
             )}
@@ -138,8 +138,8 @@ const PaymentTotal = (props: Props) => {
         // disabled={processing || disable || succeeded}
         disabled={processing || disabled || succeeded}
         onClick={(e:any) => router.push('')}
-        className={disabled ? 'bg-yellow-400/30 text-primary-200/30 rounded-sm px-2 py-2 md:mb-0 font-bold text-lg': 'bg-yellow-400 text-primary-200 rounded-sm px-2 py-2 md:mb-0 font-bold text-lg'}>
-            <span>{processing ? 'Processing' : succeeded ? 'Payment done!' : "Buy now"}</span>
+        className={disabled || processing ? 'bg-yellow-400/30 text-primary-200/30 rounded-sm px-2 py-2 md:mb-0 font-bold text-lg border': 'bg-yellow-400 text-primary-200 border border-yellow-600 rounded-sm px-2 py-2 md:mb-0 font-bold text-lg'}>
+            <span>{processing ? 'Processing...' : succeeded ? 'Payment done!' : "Buy now"}</span>
         </button>
 
             </div>

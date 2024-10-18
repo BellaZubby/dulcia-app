@@ -48,7 +48,7 @@ const Services = (props: Props) => {
             whileInView='visible'
             viewport={{once:true}}
             >
-            <Link href={'/contact'} className='border bg-yellow-200 border-gray-200 py-3 px-7 text-primary-200 ssm:py-4 ssm:px-10 font-robotoCondensed text-lg'>
+            <Link href={'/'} className='border bg-yellow-200 border-gray-200 py-3 px-7 text-primary-200 ssm:py-4 ssm:px-10 font-robotoCondensed text-lg'>
                <motion.button
                className='hover:text-white'
                   initial={{scale:1}}

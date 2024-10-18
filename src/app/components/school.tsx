@@ -41,7 +41,7 @@ const School = ({className}: Props) => {
                       whileInView='visible'
                       viewport={{once:true}}
                 >
-                <Link href={'/dulcia-school'} className='border border-primary-150 rounded-md px-10 py-3 text-lg schoolLink'>
+                <Link href={'/'} className='border border-primary-150 rounded-md px-10 py-3 text-lg schoolLink'>
                  Details
                 </Link>
                 </motion.div>

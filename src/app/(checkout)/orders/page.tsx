@@ -53,8 +53,8 @@ useEffect(() => {
   
 }, [state.user])
   return (
-    <div className='w-full ssm:pt-[100px] pt-20 pb-20 font-robotoCondensed ssm:px-10 px-5'>
-        <h1 className={orders.length === 0 ? "hidden":'ssm:text-4xl text-3xl mt-16 ssm:mt-12 text-primary-200 font-bold pl-5 ssm:pl-0'}>Your Order History</h1>
+    <div className='w-full ssm:pt-[100px] pt-20 pb-20 font-robotoCondensed ssm:px-10 px-5 bg-primary-200'>
+        <h1 className={orders.length === 0 ? "hidden":'ssm:text-4xl text-3xl mt-16 ssm:mt-12 text-white font-bold pl-5 ssm:pl-0'}>Your Orders</h1>
         {
           orders.length === 0 && 
           <div className="h-72 flex items-center justify-center">
@@ -73,7 +73,7 @@ useEffect(() => {
           }
          
         </div>
-        <h1 className={orders.length === 0 ? "hidden":"ssm:text-4xl text-3xl font-bold text-primary-200 text-center mt-16"}>Thank you for shopping with us!</h1>
+        <h1 className={orders.length === 0 ? "hidden":"ssm:text-4xl text-3xl font-bold text-white text-center mt-16"}>Thank you for shopping with us!</h1>
     </div>
   )
 }
